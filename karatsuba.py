@@ -52,7 +52,7 @@ def karatsuba(a, b, verbose=False):
             ab = str(int(a) * int(b))
             return ab
             
-    # The first part of the splitted numbers take the remaining digits.
+    # The first part of the splitted numbers takes the remaining digits.
     na1 = na - na2
     nb1 = nb - nb2
 
