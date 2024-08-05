@@ -14,7 +14,7 @@ import time
 def sort_and_count(a, verbose=False):
     """
     Sort a list with n elements and count the number of inversions
-    in time n*log(n.
+    in time n*log(n).
 
     Arguments:
         a (list):
