@@ -14,7 +14,7 @@ import time
 def karatsuba(a, b, verbose=False):
     """
     Recursive calculation of the product of 2 numbers using
-    Kartsuba's algorithm for decimal represenation.
+    Kartsuba's algorithm for decimal represenation in time n^log_2(3).
 
     Arguments:
         a (string):
