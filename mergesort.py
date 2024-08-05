@@ -10,7 +10,7 @@ import time
 
 def mergesort(a, verbose=False):
     """
-    Recursive stable sorting of a list of numbers using the
+    Recursive stable sorting of a list of n numbers in time n*log(n) using the
     Merge Sort algorithm, proposed 1945 by John von Neumann.
 
     Arguments:
