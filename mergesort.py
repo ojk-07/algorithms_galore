@@ -6,6 +6,8 @@ A program for Stanford Algorithms Specialization written by Oliver Kroneisen,
 oliver@kroneisen.net
 """
 
+import time
+
 def mergesort(a, verbose=False):
     """
     Recursive stable sorting of a list of numbers using the
@@ -75,6 +77,9 @@ if __name__ == '__main__':
     a = [3, 9, 2, 7, 7, 5, 4, 6, 9]
 
     # Sort the list.
+    tic = time.perf_counter()
     b = mergesort(a, verbose=verbose)
+    toc = time.perf_counter()
     print('The unsorted list a: {0}'.format(a))
     print('The sorted list b:   {0}'.format(b))
+    print('Execution time:      {0} ms'.format((toc - tic) * 1000))
