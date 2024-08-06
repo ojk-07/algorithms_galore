@@ -34,7 +34,7 @@ def mergesort(a, verbose=False):
 
     if n2 == 0:
         # This is the base case, where the list a already contains
-        # only 1 number. This list is be definition already sorted.
+        # only 1 number. This list is by definition sorted.
             if verbose:
                 print('Base case: {0}'.format(a))
             b = a
