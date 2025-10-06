@@ -1,0 +1,8 @@
+Reading input data for Median Maintenance.
+No. of numbers: 10000
+
+Calculate medians.
+
+Checksum = 1213
+
+Execution time: 148.45700000296347 ms

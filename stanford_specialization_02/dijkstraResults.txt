@@ -1,0 +1,9 @@
+Reading input data for Dijsktra.
+No. of nodes: 200
+
+Calculate shortest paths.
+
+Results for assignment:
+2599,2610,2947,2052,2367,2399,2029,2442,2505,3068,
+
+Execution time: 24.57239999785088 ms
