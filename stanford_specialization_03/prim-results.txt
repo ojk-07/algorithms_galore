@@ -1,0 +1,8 @@
+Reading input data for Prim.
+No. of nodes: 500
+
+Calculate minimum spanning tree.
+
+Cost of minimum spanning tree: -3612829
+
+Execution time: 47.84389998530969 ms

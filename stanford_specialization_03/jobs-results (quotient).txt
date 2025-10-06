@@ -1,0 +1,8 @@
+Reading job input data.
+No. of jobs: 10000
+
+Calculate schedule.
+
+Weighted sum: 67311454237
+
+Execution time: 268.30990001326427 ms
