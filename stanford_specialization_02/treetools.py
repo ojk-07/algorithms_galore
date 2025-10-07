@@ -273,6 +273,123 @@ class btree:
         else:
             return None   # no predecessor found
 
+    def rotate(self, node, right=True):
+        """
+        Rotate btree right or left at node.
+
+        Arguments:
+            node (bnode):
+                Node where to perform the rotation of btree.
+            right (bool):
+                Optional flag indicating whether to rotate right or left.
+
+        Returns:
+            rotated (bool):
+                Flag whether the rotation could be executed.
+        """
+
+        # Initialize variables.
+        rotated = False
+        # Store information about the parent of node.
+        parent = node.parent
+        # Perform rotation.
+        if right:   # rotate right
+            l = node.left
+            if l == None:   # rotation not possible
+                return rotated
+            # Set reference variables.
+            lr = l.right
+            # Update references.
+            l.parent = parent
+            l.right = node
+            node.parent = l
+            node.left = lr
+            if lr != None:
+                lr.parent = node
+            if parent == None:
+                self.root = l
+            elif parent.left == node:
+                parent.left = l
+            else:
+                parent.right = l
+            # Update stats of node and l.
+            node.calc_stats()
+            l.calc_stats()
+            rotated = True
+        else:   # rotate left
+            r = node.right
+            if r == None:   # rotation not possible
+                return rotated
+            # Set reference variables.
+            rl = r.left
+            # Update references.
+            r.parent = parent
+            r.left = node
+            node.parent = r
+            node.right = rl
+            if rl != None:
+                rl.parent = node
+            if parent == None:
+                self.root = r
+            elif parent.left == node:
+                parent.left = r
+            else:
+                parent.right = r
+            # Update stats for node and r.
+            node.calc_stats()
+            r.calc_stats()
+            rotated = True
+        return rotated
+
+    def balance_avl(self, node):
+        """
+        Balance btree at node according to avl rules.
+
+        Arguments:
+            node (bnode):
+                Node where to balance btree.
+
+        Returns:
+            balanced (bool):
+                Flag whether the balancing could be executed.
+        """
+
+        # Initialize variables.
+        balanced = False
+        if self.type == 'avl' and abs(node.balance) >= 2:
+            # Node out of balance.
+            if node.balance >= 2:   # case a
+                if node.right.balance >= 0:   # case a.1
+                    # Rotate left in node.
+                    rotated = self.rotate(node, right=False)
+                    if rotated:
+                        balanced = True
+                else:   # case a.2
+                    # Double rotation needed.
+                    # Rotate right in node.right.
+                    rotated = self.rotate(node.right, right=True)
+                    # Rotate left in node.
+                    if rotated:
+                        rotated = self.rotate(node, right=False)
+                        if rotated:
+                            balanced = True
+            else:   # case b
+                if node.left.balance <= 0:   # case b.1
+                    # Rotate right in node.
+                    rotated = self.rotate(node, right=True)
+                    if rotated:
+                        balanced = True
+                else:   # case b.2
+                    # Double rotation needed.
+                    # Rotate left in node.left.
+                    rotated = self.rotate(node.left, right=False)
+                    # Rotate right in node.
+                    if rotated:
+                        rotated = self.rotate(node, right=True)
+                        if rotated:
+                            balanced = True
+        return balanced
+
     def insert(self, node, unique=True):
         """
         Insert node into btree.
@@ -291,7 +408,6 @@ class btree:
 
         # Initialize data.
         inserted = False
-        delta_size = node.size
 
         # Handle special case of empty tree.
         if self.root == None:
@@ -314,8 +430,9 @@ class btree:
                     # Insert node as inner node.
                     node.left = anchor.left
                     anchor.left = node
-                    node.size += node.left.size
                     node.left.parent = node
+                    # Update stats for node.
+                    node.calc_stats()
                 inserted = True
         else:
             if node <= anchor:   # node can actually only be < anchor
@@ -330,10 +447,14 @@ class btree:
         if inserted:
             # Store anchor as parent for node.
             node.parent = anchor
-            # Update size for anchor and its parents.
+            # Update stats for anchor and its parents.
             q = anchor
             while q != None:
-                q.size += delta_size
+                q.calc_stats()
+                # Rebalance tree if necessary.
+                if self.type == 'avl' and abs(q.balance) >= 2:
+                    # Node q out of balance.
+                    self.balance_avl(q)
                 q = q.parent
         return inserted
 
@@ -458,14 +579,14 @@ class btree:
 
         # Common adjustments in case of successful deletion.
         if deleted:
-            # Update size for anchor and its parents.
+            # Update stats for anchor and its parents.
             q = anchor
             while q != None:
-                q.size = 1
-                if q.left != None:
-                    q.size += q.left.size
-                if q.right != None:
-                    q.size += q.right.size        
+                q.calc_stats()
+                # Rebalance tree if necessary.
+                if self.type == 'avl' and abs(q.balance) >= 2:
+                    # Node q out of balance.
+                    self.balance_avl(q)
                 q = q.parent
         return deleted
 

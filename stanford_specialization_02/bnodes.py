@@ -17,6 +17,10 @@ class bnode:
     of the subtree for this node, when part of a binary tree.
     This attribute is calculated automatically when the configuration
     the node is in has changed.
+    
+    Attention: if the attribute parent is set, then the new node will
+    also have self.parent = parent. However, the parent node will not be
+    changed and therefore will not yet reflect that self is its child.
 
     Arguments:
         key (int):
@@ -59,11 +63,7 @@ class bnode:
         self.parent = parent
         self.left   = left
         self.right  = right
-        self.size   = 1
-        if self.left != None:
-            self.size += self.left.size
-        if self.right != None:
-            self.size += self.right.size
+        self.calc_stats()
         return
 
     def __str__(self):
@@ -75,22 +75,49 @@ class bnode:
                 Content of bnode converted to a string.
         """
 
-        #text = str(self.key)
-        #text = str(self.key) + ':' + str(self.mark)
-        #text = str(self.key) + ':' + str(self.size)
-        text = str(self.key)
+        # Set text elements.
+        t_key = str(self.key)
+        t_mark = str(self.mark)
         if self.parent != None:
-            text += ':' + str(self.parent.key)
+            t_parent = str(self.parent.key)
         else:
-            text += ':None'
+            t_parent = 'None'
         if self.left != None:
-            text += ':' + str(self.left.key)
+            t_left = str(self.left.key)
         else:
-            text += ':None'
+            t_left = 'None'
         if self.right != None:
-            text += ':' + str(self.right.key)
+            t_right = str(self.right.key)
         else:
-            text += ':None'
+            t_right = 'None'
+        t_size = str(self.size)
+        t_height = str(self.height)
+        t_balance = str(self.balance)
+        
+        # Compose output text.
+        variant = 2
+        if variant == 1:
+            text = t_key + ':' + t_mark
+        elif variant == 2:
+            text = t_key
+            text += ':' + t_parent
+            text += ':' + t_left
+            text += ':' + t_right            
+        elif variant == 3:   # for statistics
+            text = t_key
+            text += ':' + t_parent
+            text += ':' + t_left
+            text += ':' + t_right
+            text += ':' + t_size            
+        elif variant == 4:   # for avl trees
+            text = t_key
+            text += ':' + t_parent
+            text += ':' + t_left
+            text += ':' + t_right
+            text += ':' + t_height
+            text += ':' + t_balance
+        else:
+        	text = t_key
         return text
 
     def __repr__(self):
@@ -147,6 +174,24 @@ class bnode:
         """
 
         return(self.key >= other.key)
+
+    def calc_stats(self):
+        """
+        Calculate statistical properties of bnodes,
+        including size, height and balance.
+        """
+
+        self.size = 1
+        left_height, right_height = 0, 0
+        if self.left != None:
+            self.size += self.left.size
+            left_height = self.left.height + 1
+        if self.right != None:
+            self.size += self.right.size
+            right_height = self.right.height + 1
+        self.height = max(left_height, right_height)
+        self.balance = right_height - left_height
+        return
 
 # Main program.
 def runMe():
