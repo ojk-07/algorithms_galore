@@ -106,7 +106,7 @@ def medians_by_tree(numbers):
     checksum = 0
 
     # Initialize btree.
-    t = tt.btree()
+    t = tt.btree(tree_type='avl')
 
     # Process stream of numbers.
     for i, j in enumerate(numbers):
