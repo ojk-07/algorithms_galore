@@ -288,15 +288,13 @@ class btree:
                 Flag whether the rotation could be executed.
         """
 
-        # Initialize variables.
-        rotated = False
         # Store information about the parent of node.
         parent = node.parent
         # Perform rotation.
         if right:   # rotate right
             l = node.left
             if l == None:   # rotation not possible
-                return rotated
+                return False
             # Set reference variables.
             lr = l.right
             # Update references.
@@ -315,11 +313,10 @@ class btree:
             # Update stats of node and l.
             node.calc_stats()
             l.calc_stats()
-            rotated = True
         else:   # rotate left
             r = node.right
             if r == None:   # rotation not possible
-                return rotated
+                return False
             # Set reference variables.
             rl = r.left
             # Update references.
@@ -338,8 +335,7 @@ class btree:
             # Update stats for node and r.
             node.calc_stats()
             r.calc_stats()
-            rotated = True
-        return rotated
+        return True
 
     def balance_avl(self, node):
         """
@@ -395,14 +391,9 @@ class btree:
         Insert node into btree.
         
         In case of non-unique keys, in this implementation, the new node
-        will be added next to the first node with the same key, to keep
-        the tree easier to understand. This can result in insertions as
-        inner nodes.
-        However, it would be also possible to always insert dublicate keys
-        as leaves. This would simplify the code, but makes the trees look
-        lease intuitive.
-        Nonetheless, once AVL balancing is activated, duplicate keys are
-        likely to get spread around the tree anyway. This is unavoidable.
+        will still be added as a leaf.
+        Once AVL balancing is activated, duplicate keys are likely to get
+        spread around the tree anyway.
 
         Arguments:
             node (bnode):
@@ -416,65 +407,44 @@ class btree:
                 Flag whether the node could be inserted.
         """
 
-        # Initialize data.
-        inserted = False
-        inserted_as_leaf = True
-
         # Handle special case of empty tree.
         if self.root == None:
             self.root = node
             node.parent = None
             return True
-            
+
         # Search for key of node to be inserted.
         found, anchor = self.search(node.key)
         if found:
-            if not unique:   # otherwise not allowed to insert this node
-                # Find last left child of anchor with equal key.
-                while anchor.left != None and anchor.left.key == node.key:
-                    anchor = anchor.left
-                # Insert node as left child of anchor.
-                if anchor.left == None:
-                    # Insert node as leaf.
-                    anchor.left = node
-                else:
-                    # Insert node as inner node.
-                    node.left = anchor.left
-                    anchor.left = node
-                    node.left.parent = node
-                    inserted_as_leaf = False
-                inserted = True
-        else:
-            if node <= anchor:   # node can actually only be < anchor
-                # Insert node as left child of anchor.
-                anchor.left = node
+            if unique:
+                # Return since it is not allowed to insert this node.
+                return False
             else:
-                # Insert node as right child of anchor.
-                anchor.right = node
-            inserted = True
+                # Keep searching until the node can be inserted as a leaf
+                # as a left child of anchor.
+                while anchor.left != None:
+                    found, anchor = self.search(node.key, start=anchor.left)
 
-        # Common adjustments in case of successful insertion.
-        if inserted:
-            # Store anchor as parent for node.
-            node.parent = anchor
-            # Update stats.
-            if inserted_as_leaf:
-                # Sufficient to update stats for anchor and its parents,
-                # since the node was inserted as a leaf.
-                q = anchor
-            else:
-                # The node with non-unique key may have been inserted as
-                # an inner node, therefore the updates have to start with
-                # the inserted node.
-                q = node
-            while q != None:
-                q.calc_stats()
-                # Rebalance tree if necessary.
-                if self.type == 'avl' and abs(q.balance) >= 2:
-                    # Node q out of balance.
-                    self.balance_avl(q)
-                q = q.parent
-        return inserted
+        # Insert node as child of anchor.
+        if node <= anchor:
+            # Insert node as left child of anchor.
+            anchor.left = node
+        else:
+            # Insert node as right child of anchor.
+            anchor.right = node
+
+        # Store anchor as parent for node.
+        node.parent = anchor
+        # Update stats and rebalance tree if necessary.
+        q = node
+        while q != None:
+            q.calc_stats()
+            # Rebalance tree if necessary.
+            if self.type == 'avl' and abs(q.balance) >= 2:
+                # Node q out of balance.
+                self.balance_avl(q)
+            q = q.parent
+        return True
 
     def delete(self, node):
         """
@@ -493,9 +463,6 @@ class btree:
                 Flag whether the node could be deleted.
         """
 
-        # Initialize data.
-        deleted = False
-
         # Distinguish the different cases.
         if node.left == None and node.right == None:
             # Case 1. Directly delete node from btree.
@@ -506,14 +473,12 @@ class btree:
                     node.parent.left = None
                 else:
                     node.parent.right = None
-                deleted = True
             else:
                 # Remove the root node of btree (in case btree points to node).
                 if self.root == node:
                     self.root = None
-                    deleted = True
                 else:
-                    deleted = False
+                    return False
         elif node.left == None:
             # Case 2a. Replace node by right child.
             anchor = node.parent
@@ -527,7 +492,6 @@ class btree:
                 # Replace the root node.
                 self.root = node.right
             node.right.parent = node.parent
-            deleted = True
         elif node.right == None:
             # Case 2b. Replace node by left child.
             anchor = node.parent
@@ -541,7 +505,6 @@ class btree:
                 # Replace the root node.
                 self.root = node.left
             node.left.parent = node.parent
-            deleted = True
         else:
             # Case 3. Most complex case for nodes with 2 children.
             # Find predecessor of node.
@@ -568,7 +531,6 @@ class btree:
                 pred.right = node.right
                 # Update the other child of node.
                 node.right.parent = pred
-                deleted = True
             else:
                 # Case 3b. The parent node of pred is not affected by changes.
                 anchor = pred.parent
@@ -595,20 +557,18 @@ class btree:
                 pred.left, pred.right = node.left, node.right
                 # Update the children of node.
                 node.left.parent, node.right.parent = pred, pred
-                deleted = True
 
         # Common adjustments in case of successful deletion.
-        if deleted:
-            # Update stats for anchor and its parents.
-            q = anchor
-            while q != None:
-                q.calc_stats()
-                # Rebalance tree if necessary.
-                if self.type == 'avl' and abs(q.balance) >= 2:
-                    # Node q out of balance.
-                    self.balance_avl(q)
-                q = q.parent
-        return deleted
+        # Update stats for anchor and its parents.
+        q = anchor
+        while q != None:
+            q.calc_stats()
+            # Rebalance tree if necessary.
+            if self.type == 'avl' and abs(q.balance) >= 2:
+                # Node q out of balance.
+                self.balance_avl(q)
+            q = q.parent
+        return True
 
     def rank(self, node):
         """
