@@ -95,7 +95,7 @@ class bnode:
         t_balance = str(self.balance)
         
         # Compose output text.
-        variant = 2
+        variant = 5
         if variant == 1:
             text = t_key + ':' + t_mark
         elif variant == 2:
@@ -111,6 +111,14 @@ class bnode:
             text += ':' + t_size            
         elif variant == 4:   # for avl trees
             text = t_key
+            text += ':' + t_parent
+            text += ':' + t_left
+            text += ':' + t_right
+            text += ':' + t_height
+            text += ':' + t_balance
+        elif variant == 5:   # for avl trees, e.g. including non-unique keys
+            text = t_key
+            text += ':' + t_mark
             text += ':' + t_parent
             text += ':' + t_left
             text += ':' + t_right

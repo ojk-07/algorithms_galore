@@ -393,6 +393,16 @@ class btree:
     def insert(self, node, unique=True):
         """
         Insert node into btree.
+        
+        In case of non-unique keys, in this implementation, the new node
+        will be added next to the first node with the same key, to keep
+        the tree easier to understand. This can result in insertions as
+        inner nodes.
+        However, it would be also possible to always insert dublicate keys
+        as leaves. This would simplify the code, but makes the trees look
+        lease intuitive.
+        Nonetheless, once AVL balancing is activated, duplicate keys are
+        likely to get spread around the tree anyway. This is unavoidable.
 
         Arguments:
             node (bnode):
@@ -408,6 +418,7 @@ class btree:
 
         # Initialize data.
         inserted = False
+        inserted_as_leaf = True
 
         # Handle special case of empty tree.
         if self.root == None:
@@ -431,8 +442,7 @@ class btree:
                     node.left = anchor.left
                     anchor.left = node
                     node.left.parent = node
-                    # Update stats for node.
-                    node.calc_stats()
+                    inserted_as_leaf = False
                 inserted = True
         else:
             if node <= anchor:   # node can actually only be < anchor
@@ -447,8 +457,16 @@ class btree:
         if inserted:
             # Store anchor as parent for node.
             node.parent = anchor
-            # Update stats for anchor and its parents.
-            q = anchor
+            # Update stats.
+            if inserted_as_leaf:
+                # Sufficient to update stats for anchor and its parents,
+                # since the node was inserted as a leaf.
+                q = anchor
+            else:
+                # The node with non-unique key may have been inserted as
+                # an inner node, therefore the updates have to start with
+                # the inserted node.
+                q = node
             while q != None:
                 q.calc_stats()
                 # Rebalance tree if necessary.
@@ -555,11 +573,13 @@ class btree:
                 # Case 3b. The parent node of pred is not affected by changes.
                 anchor = pred.parent
                 # Replace pred by the left child of pred.
+                # Consider also the case that there is no left child of pred.
                 if pred.parent.left == pred:
                     pred.parent.left = pred.left
                 else:
                     pred.parent.right = pred.left
-                pred.left.parent = pred.parent
+                if pred.left != None:
+                    pred.left.parent = pred.parent
                 # Replace node by pred.
                 if node.parent != None:
                     # Replace node as child of its parent.
