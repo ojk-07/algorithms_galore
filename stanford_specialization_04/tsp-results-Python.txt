@@ -1,0 +1,39 @@
+Peak Memory usage: 1.61 GB (subproblem results in double precision)
+Runtime: 67248.78870000248 ms
+
+Reading input data for Traveling Salesman Problem.
+No. of cities: 25
+
+Calculate optimum TSP tour.
+Memory usage at start of tsp_calc: 0.12 GB
+Memory usage after initialization of matrices A, C and D: 0.18 GB
+m = 2, #subsets = 24, #calcs = 24, 0.211 GB, Δt = 0.540 s
+m = 3, #subsets = 276, #calcs = 1104, 0.211 GB, Δt = 0.541 s
+m = 4, #subsets = 2024, #calcs = 18216, 0.214 GB, Δt = 0.552 s
+m = 5, #subsets = 10626, #calcs = 170016, 0.223 GB, Δt = 0.585 s
+m = 6, #subsets = 42504, #calcs = 1062600, 0.248 GB, Δt = 0.714 s
+m = 7, #subsets = 134596, #calcs = 4845456, 0.303 GB, Δt = 1.110 s
+m = 8, #subsets = 346104, #calcs = 16959096, 0.409 GB, Δt = 2.139 s
+m = 9, #subsets = 735471, #calcs = 47070144, 0.576 GB, Δt = 4.151 s
+m = 10, #subsets = 1307504, #calcs = 105907824, 0.824 GB, Δt = 8.002 s
+m = 11, #subsets = 1961256, #calcs = 196125600, 1.100 GB, Δt = 14.427 s
+m = 12, #subsets = 2496144, #calcs = 302033424, 1.394 GB, Δt = 23.581 s
+m = 13, #subsets = 2704156, #calcs = 389398464, 1.560 GB, Δt = 34.069 s
+m = 14, #subsets = 2496144, #calcs = 421848336, 1.611 GB, Δt = 44.792 s
+m = 15, #subsets = 1961256, #calcs = 384406176, 1.471 GB, Δt = 53.549 s
+m = 16, #subsets = 1307504, #calcs = 294188400, 1.260 GB, Δt = 59.815 s
+m = 17, #subsets = 735471, #calcs = 188280576, 1.013 GB, Δt = 63.909 s
+m = 18, #subsets = 346104, #calcs = 100024056, 0.823 GB, Δt = 65.942 s
+m = 19, #subsets = 134596, #calcs = 43609104, 0.703 GB, Δt = 66.830 s
+m = 20, #subsets = 42504, #calcs = 15343944, 0.640 GB, Δt = 67.101 s
+m = 21, #subsets = 10626, #calcs = 4250400, 0.616 GB, Δt = 67.176 s
+m = 22, #subsets = 2024, #calcs = 892584, 0.608 GB, Δt = 67.191 s
+m = 23, #subsets = 276, #calcs = 133584, 0.607 GB, Δt = 67.196 s
+m = 24, #subsets = 24, #calcs = 12696, 0.607 GB, Δt = 67.197 s
+m = 25, #subsets = 1, #calcs = 576, 0.607 GB, Δt = 67.197 s
+
+Optimum TSP tour length: 26442.73030895475 -> 26442
+Optimum TSP tour:
+[1, 2, 6, 10, 11, 12, 15, 19, 18, 22, 23, 21, 17, 20, 25, 24, 16, 14, 13, 9, 7, 3, 4, 8, 5, 1]
+
+Execution time: 67248.78870000248 ms

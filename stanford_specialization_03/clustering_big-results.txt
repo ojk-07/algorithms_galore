@@ -1,0 +1,13 @@
+Reading input data for Single-Link Clustering.
+No. of vertices: 200000
+
+Calculate clustering.
+i = 0, #clusters = 200000
+…
+i = 199998, #clusters = 6118
+
+Number of clusters for minimum distance = 3: 6118
+
+Execution time: 51085536.99219995 ms (in Python, pairwise comparisons): factor 797
+Execution time: 1687292.000 ms (in C, pairwise comparisons): factor 230
+Execution time: 7343.000 ms (in C, hash based)

@@ -1,0 +1,13 @@
+				Kosaraju		Papadimitriou
+2sat1.txt	satisfiable	689.176 ms (Python)	626.710 ms (Python)
+				255.000 ms (C)		145.000 ms (C)
+2sat2.txt	not satisfiable	1253.551 ms (Python)	2112.450 ms (Python)
+				471.000 ms (C)		283.000 ms (C)
+2sat3.txt	satisfiable	3566.224 ms (Python)	3532.314 ms (Python)
+				940.000 ms (C)		531.000 ms (C)
+2sat4.txt	satisfiable	5825.436 ms (Python)	5243.127 ms (Python)
+				1729.000 ms (C)		792.000 ms (C)
+2sat5.txt	not satisfiable	7206.086 ms (Python)	7758.105 ms (Python)
+				2298.000 ms (C)		988.000 ms (C)
+2sat6.txt	not satisfiable	8878.055 ms (Python)	8464.502 ms (Python)
+				2962.000 ms (C)		2191.000 ms (C)

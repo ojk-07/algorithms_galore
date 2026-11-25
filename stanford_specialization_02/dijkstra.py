@@ -14,9 +14,7 @@ import elements as el
 import heaptools as ht
 import time
 import sys
-
-global INF   # global variable to represent "infinite"
-INF = 1000000 
+from math import inf as INF
 
 def dijkstra_paths(nodes, adj_dict, s):
     """
@@ -82,7 +80,7 @@ def read_list(file_name):
     """
     Read source data of directed edges (arcs).
     Every row starts with the tail node of an arc, followed by 1 or several
-    tuples of [tail nodes, weights] for arcs.
+    tuples of [head nodes, weights] for arcs.
 
     Arguments:
         file_name (str):
@@ -102,7 +100,6 @@ def read_list(file_name):
     """
 
     # Initialize structures.
-    global INF
     nodes = {}
     adj_dict = {}
     # Read list data from file.
@@ -119,7 +116,7 @@ def read_list(file_name):
                 for j in enumerate(raw_data[i].split()):
                     if j[0] == 0:
                         node = int(j[1])
-                        head = node
+                        tail = node
                     else:
                         node = int(j[1].split(',')[0])
                         weight = int(j[1].split(',')[1])
@@ -131,8 +128,8 @@ def read_list(file_name):
                         adj_dict[node] = []
                     if j[0] > 0:
                         row_list.append([node, weight])
-                # Insert row_list into adj_dict entry for head.
-                adj_list = adj_dict[head]
+                # Insert row_list into adj_dict entry for tail.
+                adj_list = adj_dict[tail]
                 adj_list += row_list
         return 0, nodes, adj_dict
     except:
@@ -140,7 +137,7 @@ def read_list(file_name):
 
 # Main programm
 def runMe():
-    file_name = 'dijkstraData.txt'
+    file_name = 'dijkstra.txt'
 
     tic = time.perf_counter()
     sys.stdout.write('\nReading input data for Dijsktra.\n')
@@ -152,11 +149,11 @@ def runMe():
         return
     sys.stdout.write('No. of nodes: ' + str(len(nodes)) + '\n')
     sys.stdout.flush()
-    sys.stdout.write('\nCalculate shortest paths.\n')
+    sys.stdout.write('\nCalculating shortest paths.\n')
     sys.stdout.flush()
     start = nodes[1]   # start with node '1'
     dijkstra_paths(nodes, adj_dict, start)
-    # Shortest paths according to assignement.
+    # Shortest paths according to assignment.
     sys.stdout.write('\nResults for assignment:\n')
     sys.stdout.flush()
     list = [7, 37, 59, 82, 99, 115, 133, 165, 188, 197]

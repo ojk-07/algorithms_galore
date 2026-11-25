@@ -48,7 +48,7 @@ def write_list(file_name, nmin, nmax, mode=0):
 if __name__ == '__main__':
     
     # Write test data to file.
-    file_name = 'Test.txt'
+    file_name = 'test.txt'
     status = write_list(file_name, 1, 1000, mode=0)
     if status:
         print('Error when writing to the file.')

@@ -1,0 +1,31 @@
+Reading input data for Knapsack Problem.
+No. of items: 100, Knapsack capacity: 10000
+
+Calculate optimum Knapsack configuration.
+Scaling Knapsack values down by: 99.506 for accuracy of epsilon = 0.1
+Calculating subproblems.
+Parameter for outer iteration: 100, for inner iteration 100000
+Searching for optimum reachable Knapsack value.
+search value = 4975300.0 weight = inf remaining capacity = -inf
+search value = 2487650.0 weight = 9939 remaining capacity = 61
+search value = 3731475.0 weight = 24282 remaining capacity = -14282
+search value = 3109562.5 weight = 15694 remaining capacity = -5694
+search value = 2798606.25 weight = 12696 remaining capacity = -2696
+search value = 2643078.372 weight = 11309 remaining capacity = -1309
+search value = 2565264.68 weight = 10615 remaining capacity = -615
+search value = 2526357.834 weight = 10268 remaining capacity = -268
+search value = 2506854.658 weight = 10100 remaining capacity = -100
+search value = 2497103.07 weight = 10060 remaining capacity = -60
+search value = 2492227.276 weight = 10013 remaining capacity = -13
+search value = 2489739.626 weight = 9976 remaining capacity = 24
+search value = 2490933.698 weight = 9976 remaining capacity = 24
+search value = 2491530.734 weight = 9976 remaining capacity = 24
+search value = 2491829.252 weight = 9976 remaining capacity = 24
+search value = 2491928.758 weight = 9976 remaining capacity = 24
+
+Minimum Knapsack weight: 9976 for value: 2492028.264
+Knapsack value as sum of items: 2493893
+Optimum Knapsack contains the items:
+[6, 7, 9, 10, 11, 14, 15, 16, 19, 24, 25, 26, 29, 32, 37, 41, 42, 43, 46, 50, 54, 57, 58, 59, 62, 66, 69, 72, 75, 76, 77, 78, 80, 83, 89, 91, 92, 93, 99, 100]
+
+Execution time: 4673.117299971636 ms

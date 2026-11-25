@@ -12,13 +12,11 @@ This program is related to the programming assignment #1 in the Course
 https://www.coursera.org/learn/algorithms-greedy/home/module/1
 """
 
-import time
-import sys
 import elements  as el
 import heaptools as ht
-
-global INF   # global variable to represent "infinite"
-INF = 1000000 
+import time
+import sys
+from math import inf as INF
 
 def prim_MST(nodes, adj_dict, s):
     """
@@ -49,7 +47,7 @@ def prim_MST(nodes, adj_dict, s):
             List of edges as node tuples (v, w) of minimum spanning tree.
     """
 
-    # Initialize data structures:
+    # Initialize data structures.
     T = []          # edges of minimum spanning tree
     cost = 0        # cost of minimum spanning tree
     X = []          # nodes processed so far
@@ -107,7 +105,7 @@ def read_list(file_name):
     Arguments:
         file_name (str):
             File name to be read.
-
+    
     Returns:
         status (int):
             '0' indicates successful processing, '1' that an error ocurred.
@@ -121,8 +119,7 @@ def read_list(file_name):
             including the weights of edges.
     """
 
-    # Initialize structures.
-    global INF
+    # Initialize data structures.
     nodes = {}
     adj_dict = {}
     # Read list data from file.
@@ -179,7 +176,7 @@ def runMe():
     sys.stdout.flush()
     start = nodes[1]   # start with node '1'
     cost, T = prim_MST(nodes, adj_dict, start)
-    # Minimum spanning tree according to assignement.
+    # Minimum spanning tree according to assignment.
     sys.stdout.write('\nCost of minimum spanning tree: ' + str(cost) + '\n')
     sys.stdout.flush()
     #sys.stdout.write('Edges of minimum spanning tree:\n')

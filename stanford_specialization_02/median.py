@@ -153,7 +153,7 @@ def read_list(file_name):
 
 # Main programm
 def runMe():
-    file_name = 'Median.txt'
+    file_name = 'median.txt'
 
     tic = time.perf_counter()
     sys.stdout.write('\nReading input data for Median Maintenance.\n')

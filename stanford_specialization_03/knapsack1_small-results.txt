@@ -1,0 +1,10 @@
+Reading input data for Knapsack Problem.
+No. of items: 10, Knapsack capacity: 2500
+
+Calculate optimum Knapsack configuration.
+
+Maximum Knapsack value: 43083
+Optimum Knapsack contains the items:
+[1, 2, 3, 6, 8, 10]
+
+Execution time: 34.39709998201579 ms

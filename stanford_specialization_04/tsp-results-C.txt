@@ -1,0 +1,37 @@
+Peak Memory usage: unknown (subproblem results in double precision, C version)
+Runtime: 22190.320 ms
+
+Reading input data for Traveling Salesman Problem.
+No. of cities: 25
+
+Calculate optimum TSP tour.
+m = 2, #subsets = 24, #calcs = 24, dt = 0.020 s
+m = 3, #subsets = 276, #calcs = 1104, dt = 0.030 s
+m = 4, #subsets = 2024, #calcs = 18216, dt = 0.042 s
+m = 5, #subsets = 10626, #calcs = 170016, dt = 0.062 s
+m = 6, #subsets = 42504, #calcs = 1062600, dt = 0.107 s
+m = 7, #subsets = 134596, #calcs = 4845456, dt = 0.195 s
+m = 8, #subsets = 346104, #calcs = 16959096, dt = 0.399 s
+m = 9, #subsets = 735471, #calcs = 47070144, dt = 0.851 s
+m = 10, #subsets = 1307504, #calcs = 105907824, dt = 1.919 s
+m = 11, #subsets = 1961256, #calcs = 196125600, dt = 3.828 s
+m = 12, #subsets = 2496144, #calcs = 302033424, dt = 6.748 s
+m = 13, #subsets = 2704156, #calcs = 389398464, dt = 10.322 s
+m = 14, #subsets = 2496144, #calcs = 421848336, dt = 13.921 s
+m = 15, #subsets = 1961256, #calcs = 384406176, dt = 17.434 s
+m = 16, #subsets = 1307504, #calcs = 294188400, dt = 19.670 s
+m = 17, #subsets = 735471, #calcs = 188280576, dt = 21.052 s
+m = 18, #subsets = 346104, #calcs = 100024056, dt = 21.681 s
+m = 19, #subsets = 134596, #calcs = 43609104, dt = 21.946 s
+m = 20, #subsets = 42504, #calcs = 15343944, dt = 22.051 s
+m = 21, #subsets = 10626, #calcs = 4250400, dt = 22.082 s
+m = 22, #subsets = 2024, #calcs = 892584, dt = 22.094 s
+m = 23, #subsets = 276, #calcs = 133584, dt = 22.102 s
+m = 24, #subsets = 24, #calcs = 12696, dt = 22.110 s
+m = 25, #subsets = 1, #calcs = 576, dt = 22.117 s
+
+Optimum TSP tour length: 26442.730309 -> 26442
+Optimum TSP tour:
+1 2 6 10 11 12 15 19 18 22 23 21 17 20 25 24 16 14 13 9 7 3 4 8 5 1
+
+Execution time: 22190.320 ms

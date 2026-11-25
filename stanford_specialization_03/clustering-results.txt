@@ -1,0 +1,8 @@
+Reading input data for Single-Link Clustering.
+No. of vertices: 500, edges: 124750
+
+Calculate clustering.
+
+Minimum cluster distance for k = 4: 106
+
+Execution time: 460.74999985285103 ms

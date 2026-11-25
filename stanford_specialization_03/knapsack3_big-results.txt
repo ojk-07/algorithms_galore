@@ -1,0 +1,32 @@
+Reading input data for Knapsack Problem.
+No. of items: 2000, Knapsack capacity: 2000000
+
+Calculate optimum Knapsack configuration.
+Scaling Knapsack values down by: 4.995450000000001 for accuracy of epsilon = 0.1
+Calculating subproblems.
+Parameter for outer iteration: 2000, for inner iteration 39998000
+Searching for optimum reachable Knapsack value.
+search value = 98999828.10000001 weight = inf remaining capacity = -inf
+search value = 49499914.050000004 weight = 186273786 remaining capacity = -184273786
+search value = 24749957.025000002 weight = 48799256 remaining capacity = -46799256
+search value = 12374978.512500001 weight = 12816007 remaining capacity = -10816007
+search value = 6187489.256250001 weight = 3879557 remaining capacity = -1879557
+search value = 3092827.9630500004 weight = 1211100 remaining capacity = 788900
+search value = 4640158.609650001 weight = 2383298 remaining capacity = -383298
+search value = 3866493.2863500006 weight = 1747287 remaining capacity = 252713
+search value = 4253325.948000001 weight = 2048594 remaining capacity = -48594
+search value = 4058992.9521000003 weight = 1894454 remaining capacity = 105546
+search value = 4156159.4500500006 weight = 1969689 remaining capacity = 30311
+search value = 4203826.03395 weight = 2010059 remaining capacity = -10059
+search value = 4179992.7420000006 weight = 1990241 remaining capacity = 9759
+search value = 4190992.7229000004 weight = 1999783 remaining capacity = 217
+search value = 4196492.713350001 weight = 2003453 remaining capacity = -3453
+search value = 4192826.0530500007 weight = 2002352 remaining capacity = -2352
+search value = 4190992.7229000004 weight = 1999783 remaining capacity = 217
+
+Minimum Knapsack weight: 1999783 for value: 4190992.7229000004
+Knapsack value as sum of items: 4243395
+Optimum Knapsack contains the items:
+[65, 76, 98, 263, 267, 286, 309, 357, 366, 392, 395, 418, 423, 468, 469, 486, 499, 513, 534, 596, 620, 635, 668, 725, 768, 775, 869, 872, 922, 946, 956, 964, 1008, 1009, 1058, 1087, 1164, 1186, 1191, 1276, 1285, 1343, 1461, 1532, 1549, 1573, 1591, 1608, 1624, 1714, 1722, 1807, 1821, 1832, 1854, 1888, 1894, 1906, 1974, 1981, 1990]
+
+Execution time: 434526.6249999986 ms

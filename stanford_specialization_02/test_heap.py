@@ -9,9 +9,6 @@ oliver@kroneisen.net
 import elements as el
 import heaptools as ht
 
-global INF   # global variable to represent "infinite"
-INF = 1000000 
-
 # Main programm
 def runMe():
     # Test 01.

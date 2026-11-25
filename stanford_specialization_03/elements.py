@@ -2,7 +2,7 @@
 """
 Element class to be used as an imported module.
 
-A method collection for Stanford Algorithms Specialization 2 written
+A method collection for Stanford Algorithms Specialization 3 written
 by Oliver Kroneisen, oliver@kroneisen.net
 """
 
@@ -26,7 +26,7 @@ class elem:
             Reference to the key of another element (optional).
     """
 
-    def __init__(self, key, val, idx, ref=-1):
+    def __init__(self, key, val, idx=-1, ref=-1):
         """
         Initialize element.
 
@@ -36,7 +36,7 @@ class elem:
             val (int or float):
                 The value of the element, which will be used for comparisions.
             idx (int):
-                Index of element in an enclosing list.
+                Index of element in an enclosing list (optional).
                 A value of -1 indicates that the element is not part of
                 an enclosing list.
             ref (int):

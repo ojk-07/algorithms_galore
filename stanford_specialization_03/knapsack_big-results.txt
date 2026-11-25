@@ -1,0 +1,31 @@
+Reading input data for Knapsack Problem.
+No. of items: 2000, Knapsack capacity: 2000000
+
+Calculate optimum Knapsack configuration.
+
+Calculating optimum Knapsack configuration ...
+item = 2000 #capacities = 2
+...
+item = 1 #capacities = 5421
+
+Maximum Knapsack value: 4243395
+Optimum Knapsack contains the items:
+[65, 76, 98, 263, 267, 286, 309, 357, 366, 392, 395, 418, 423, 468, 469, 486, 499, 513, 534, 596, 620, 635, 668, 725, 768, 775, 869, 872, 922, 946, 956, 964, 1008, 1009, 1058, 1087, 1164, 1186, 1191, 1276, 1285, 1343, 1461, 1532, 1549, 1573, 1591, 1608, 1624, 1714, 1722, 1807, 1821, 1832, 1854, 1888, 1894, 1906, 1974, 1981, 1990]
+
+Execution time: 95872.934500002880 ms (with knapsack_big_v1.py)
+Execution time: 44130.640099996526 ms (with knapsack_big.py)
+
+Creating capacities list:
+Execution time: 84153.436899883670 ms (with knapsack_big_v1.py, AVL tree)
+Execution time: 32332.788999890910 ms (with knapsack_big.py, SortedSet)
+
+Remarks to the data in knapsack_big.txt:
+- The item with minimum weight has weight 15,
+  so theoretically 133333 such would fit into capacity W
+- Out of the 2000 items, there are 1973 distinct weights
+  (i.e. almost all, which does not provide a simplification)
+- There are 9997666 distinct weight combinations
+- However, there are only 5421 distinct weight combinations not larger than capacity W,
+  which simplifies the DP calculation significantly
+- All values contain the factor 367. This does not help for the weight-based DP approach,
+  but it helps for the value-based DP algorithm

@@ -1,0 +1,8 @@
+Reading input data for Huffman Codes.
+No. of letters: 1000
+
+Calculate Huffman Codes.
+
+Minimum encoding length = 9, maximum length = 19
+
+Execution time: 18.840699922293425 ms

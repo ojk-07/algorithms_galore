@@ -2,8 +2,7 @@
 """
 Greedy schedule algorithm for calculating optimal scheduling of jobs with given
 weights and lengths, such that the weighted sum of lengths becomes minimal.
-
-Runtime: O(n log n) for n jobs.
+Running time: O(n log n) for n jobs.
 
 A program for Stanford Algorithms Specialization 3 written by Oliver Kroneisen,
 oliver@kroneisen.net
@@ -12,10 +11,10 @@ This program is related to the programming assignment #1 in the Course
 https://www.coursera.org/learn/algorithms-greedy/home/module/1
 """
 
-import time
-import sys
 import elements_adjusted as el
 import heaptools         as ht
+import time
+import sys
 
 def read_list(file_name):
     """

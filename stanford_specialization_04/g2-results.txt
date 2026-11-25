@@ -1,0 +1,11 @@
+Reading input data for All-Pairs Shortest Paths.
+No. of vertices: 1000, no. of edges: 47978
+The graph contains edges with negative weights.
+
+Calculate shortest paths.
+
+Results for assignment:
+The graph contains negative-weight cyclces.
+
+Execution time: 8518.268799874932 ms (Bellman-Ford)
+Execution time: 17818.67709988728 ms (Johnson)

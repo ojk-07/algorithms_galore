@@ -1,0 +1,8 @@
+Reading input data for path graph.
+No. of vertices: 1000
+
+Calculate Maximum-Weight Independent Set.
+
+Bit pattern for assignment for weight sum = 2955353732: 10100110
+
+Execution time: 6.039300002157688 ms

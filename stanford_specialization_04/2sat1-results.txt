@@ -1,0 +1,35 @@
+<<< Deterministic algorithm >>>
+
+Reading input data for 2SAT Problem.
+No. of variables: 100000, no. of clauses: 100000
+
+Reduce 2SAT instance by pure literal elimination.
+No. of variables: 6, no. of clauses: 6
+
+Calculate 2SAT assignment.
+Build implication graph.
+Calculating pass 1.
+Calculating pass 2.
+Construct 2SAT assignment.
+
+This 2SAT instance is satisfiable.
+
+Execution time: 689.1759999853093 ms (Python)
+Execution time: 255.000 ms (C)
+
+<<< Random algorithm>>>
+
+Reading input data for 2SAT Problem.
+No. of variables: 100000, no. of clauses: 100000
+
+Reduce 2SAT instance by pure literal elimination.
+No. of variables: 6, no. of clauses: 6
+
+Calculate 2SAT assignment.
+Variables to clauses dictionary created.
+outer iteration = 1, Δt = 0.000 s
+
+This 2SAT instance is satisfiable.
+
+Execution time: 626.7103000136558 ms (Python)
+Execution time: 145.000 ms (C)

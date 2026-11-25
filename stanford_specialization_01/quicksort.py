@@ -59,7 +59,7 @@ def partion(a, ip, il, ir, verbose=False):
     between index il (inclusive) and index ir (inclusive), so that all numbers
     to the left of p in the result list are smaller than p, and all numbers
     to the right of p are bigger or equal to p.
-    The rountine is linear in time, and runs in-place.
+    The running time is linear in time, and runs in-place.
 
     Arguments:
         a (list):

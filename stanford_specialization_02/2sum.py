@@ -13,9 +13,8 @@ https://www.coursera.org/learn/algorithms-graphs-data-structures/home/module/4
 import time
 import sys
 
-# Prime numbers for hashing.
+# Global variables for prime numbers for hashing.
 # Suitable prime numbers can be found via the Miller-Rabin test.
-global p0, p1
 p0   = 1999993   # prime number within a constant factor of #data records
 p1   = 1999979   # prime number <= p0 - 2
 test = 10000     # boundary of the test intervall for t

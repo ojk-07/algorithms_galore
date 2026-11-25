@@ -165,7 +165,7 @@ def partionFU(a, il, ir, p, track=False, verbose=False):
     
     It is required that pivot p is a non-minimum element in the list segment!
     
-    The rountine is linear in time, i.e. O(n), and runs in-place.
+    The running time is linear in time, i.e. O(n), and runs in-place.
     
     Arguments:
         a (list):
@@ -228,7 +228,7 @@ def partion(a, il, ir, ip, track=False, verbose=False):
     elements to the left of index ip in the result list are smaller than p,
     and all elements to the right of ip are larger or equal to p.
     
-    The rountine is linear in time, i.e. O(n), and runs in-place.
+    The running time is linear in time, i.e. O(n), and runs in-place.
     
     With option opt, we allow elements to the left of index ip to be less or
     equal to p, and elements to the right to be larger or equal to p.
@@ -553,4 +553,3 @@ if __name__ == '__main__':
     print('Number of calls of partitioning function: {0}'.format(gc))
     print('Number of partitionings on parent list:   {0}'.format(gca))
     print('Execution time: {0} ms'.format((toc - tic) * 1000))
-    

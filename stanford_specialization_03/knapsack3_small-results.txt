@@ -1,0 +1,25 @@
+Reading input data for Knapsack Problem.
+No. of items: 10, Knapsack capacity: 2500
+
+Calculate optimum Knapsack configuration.
+Scaling Knapsack values down by: 89.31 for accuracy of epsilon = 0.1
+Calculating subproblems.
+Parameter for outer iteration: 10, for inner iteration 1000
+Searching for optimum reachable Knapsack value.
+search value = 44655.0 weight = 2508 remaining capacity = -8
+search value = 22327.5 weight = 732 remaining capacity = 1768
+search value = 33491.25 weight = 1236 remaining capacity = 1264
+search value = 39028.47 weight = 1849 remaining capacity = 651
+search value = 41797.08 weight = 1849 remaining capacity = 651
+search value = 43136.73 weight = 2508 remaining capacity = -8
+search value = 42422.25 weight = 2465 remaining capacity = 35
+search value = 42779.49 weight = 2465 remaining capacity = 35
+search value = 42958.11 weight = 2508 remaining capacity = -8
+search value = 42868.8 weight = 2465 remaining capacity = 35
+
+Minimum Knapsack weight: 2465 for value: 42868.8
+Knapsack value as sum of items: 43083
+Optimum Knapsack contains the items:
+[1, 2, 3, 6, 8, 10]
+
+Execution time: 17.011300020385534 ms
