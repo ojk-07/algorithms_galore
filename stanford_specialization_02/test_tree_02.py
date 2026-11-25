@@ -20,7 +20,7 @@ def del_node(tree, node):
     print('Delete', node, '->', status)
     return status
 
-# Main programm
+# Main program.
 def runMe():
     # Test 01: Insert.
     # Prepare the initial tree structure.

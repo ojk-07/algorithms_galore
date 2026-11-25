@@ -102,7 +102,7 @@ def read_list(file_name):
     except:
         return 1, numbers
 
-# Main programm
+# Main program.
 def runMe():
     global p0, test
     file_name = 'algo1-programming_prob-2sum.txt'

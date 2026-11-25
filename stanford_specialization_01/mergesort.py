@@ -81,8 +81,8 @@ def read_list(file_name):
         int_list = []
         return 1, int_list
 
-if __name__ == '__main__':
-
+# Main program.
+def runMe():
     # Set parameters for calculation.
     verbose = False
 
@@ -97,3 +97,8 @@ if __name__ == '__main__':
     print('The unsorted list a: {0}'.format(a))
     print('The sorted list b:   {0}'.format(b))
     print('Execution time:      {0} ms'.format((toc - tic) * 1000))
+
+    return
+
+if __name__ == '__main__':
+    runMe()

@@ -241,8 +241,8 @@ def read_list(file_name):
         adj_matrix = np.zeros((0, 0))
         return 1, adj_vert, adj_list, adj_dict, adj_matrix
 
-if __name__ == '__main__':
-
+# Main program.
+def runMe():
     # Set parameters for calculation.
     verbose = False
     #n_iter  = 1000
@@ -280,3 +280,8 @@ if __name__ == '__main__':
         i += 1
     toc = time.perf_counter()
     print('\nExecution time: {0} ms'.format((toc - tic) * 1000))
+
+    return
+
+if __name__ == '__main__':
+    runMe()

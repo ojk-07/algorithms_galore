@@ -158,7 +158,7 @@ def read_list(file_name):
     except:
         return 1, nodes, adj_dict
 
-# Main programm
+# Main program.
 def runMe():
     file_name = 'edges.txt'
 

@@ -162,7 +162,7 @@ def read_list(file_name):
     except:
         return 1, n_vertices, edges
 
-# Main programm
+# Main program.
 def runMe():
     file_name = 'clustering.txt'
     k = 4   # number of target clusters

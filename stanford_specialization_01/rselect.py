@@ -4,7 +4,6 @@ RSelect algorithm.
 
 A program for Stanford Algorithms Specialization written by Oliver Kroneisen,
 oliver@kroneisen.net
-
 """
 
 import time
@@ -221,8 +220,8 @@ def read_list(file_name):
         int_list = []
         return 1, int_list
 
-if __name__ == '__main__':
-
+# Main program.
+def runMe():
     # Set parameters for calculation.
     verbose = False
     istat = 4711
@@ -238,3 +237,8 @@ if __name__ == '__main__':
     toc = time.perf_counter()
     print('The value of the {0}th statistic is {1}'.format(istat, value))
     print('Execution time: {0} ms'.format((toc - tic) * 1000))
+
+    return
+
+if __name__ == '__main__':
+    runMe()

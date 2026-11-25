@@ -89,8 +89,8 @@ def read_list(file_name):
         int_list = []
         return 1, int_list
 
-if __name__ == '__main__':
-
+# Main program.
+def runMe():
     # Set parameters for calculation.
     verbose = False
     #a = [3, 2, 5, 4]   # 2 inversions
@@ -107,3 +107,8 @@ if __name__ == '__main__':
     #print(b)   # for test purposes, should be a sorted list
     print('Number of inversions in the list: {0}'.format(m))
     print('Execution time: {0} ms'.format((toc - tic) * 1000))
+
+    return
+
+if __name__ == '__main__':
+    runMe()

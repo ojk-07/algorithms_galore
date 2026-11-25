@@ -374,7 +374,7 @@ def read_list_with_ids(file_name):
         n_cities, cities = 0, {}
         return 1, n_cities, cities
 
-# Main programm
+# Main program.
 def runMe():
     file_name = 'tsp.txt'
     #file_name = 'nn.txt'

@@ -288,7 +288,7 @@ def read_list(file_name, reverse=False):
     except:
         return 1, vertices, vertex_status, adj_dict
 
-# Main programm
+# Main program.
 def runMe():
     file_name = 'scc.txt'   # 35 s
 

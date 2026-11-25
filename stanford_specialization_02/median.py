@@ -151,7 +151,7 @@ def read_list(file_name):
     except:
         return 1, numbers
 
-# Main programm
+# Main program.
 def runMe():
     file_name = 'median.txt'
 

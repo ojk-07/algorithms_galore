@@ -82,8 +82,8 @@ def karatsuba(a, b, verbose=False):
 
     return ab
 
-if __name__ == '__main__':
-
+# Main program.
+def runMe():
     # Set parameters for calculation.
     verbose = False
     #a = '3141'
@@ -108,3 +108,8 @@ if __name__ == '__main__':
     print('Difference: {0}'.format(mc - mp))
     print('Execution time algorithm: {0} ms'.format((toc1 - tic1) * 1000))
     print('Execution time natively:  {0} ms'.format((toc2 - tic2) * 1000))
+
+    return
+
+if __name__ == '__main__':
+    runMe()

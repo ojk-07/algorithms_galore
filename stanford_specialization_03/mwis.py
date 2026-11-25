@@ -107,7 +107,7 @@ def read_list(file_name):
     except:
         return 1, n_vertices, weights
 
-# Main programm
+# Main program.
 def runMe():
     file_name = 'mwis.txt'
 

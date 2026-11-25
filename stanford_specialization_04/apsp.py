@@ -669,7 +669,7 @@ def read_adjacency_list(file_name):
     except:
         return 1, n_vertices, n_edges, has_nwe, edges, vertices, adj_dict
 
-# Main programm
+# Main program.
 def runMe():
     #file_name = 'dijkstra.txt'
     #file_name = 'g1.txt'

@@ -8,6 +8,9 @@ oliver@kroneisen.net
 
 import time, copy
 
+gc  = 0   # global counter for number of calls to function partion
+gca = 0   # global counter for number of calls to partion on parent list
+
 class Elem:
     """
     Class to represent elements to be sorted.
@@ -531,11 +534,8 @@ def read_list(file_name):
         list = []
         return 1, list
 
-if __name__ == '__main__':
-    
-    gc  = 0   # global counter for number of calls to function partion
-    gca = 0   # global counter for number of calls to partion on parent list
-
+# Main program.
+def runMe():
     # Set parameters for calculation.
     verbose = False
     istat = 10305
@@ -553,3 +553,8 @@ if __name__ == '__main__':
     print('Number of calls of partitioning function: {0}'.format(gc))
     print('Number of partitionings on parent list:   {0}'.format(gca))
     print('Execution time: {0} ms'.format((toc - tic) * 1000))
+
+    return
+
+if __name__ == '__main__':
+    runMe()

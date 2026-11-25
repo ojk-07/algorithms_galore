@@ -143,7 +143,7 @@ def read_list(file_name):
     except:
         return 1, n_items, capacity, values, weights
 
-# Main programm
+# Main program.
 def runMe():
     #file_name = 'knapsack_small.txt'
     file_name = 'knapsack.txt'

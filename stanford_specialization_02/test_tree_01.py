@@ -9,7 +9,7 @@ oliver@kroneisen.net
 import bnodes as bn
 import treetools as tt
 
-# Main programm
+# Main program.
 def runMe():
     # Test 01.
     key = 3

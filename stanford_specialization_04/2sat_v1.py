@@ -467,7 +467,7 @@ def read_list(file_name):
         n_vars, n_clauses, clauses = 0, 0, []
         return 1, n_vars, n_clauses, clauses
 
-# Main programm
+# Main program.
 def runMe():
     #file_name = '2sat1.txt'   # satisfiable
     #file_name = '2sat2.txt'   # not satisfiable

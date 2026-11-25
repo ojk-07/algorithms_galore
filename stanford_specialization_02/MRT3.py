@@ -62,7 +62,7 @@ _def_up_limit = 100
 _known_primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37]
 _known_primes += [x for x in range(37, _def_up_limit, 2) if is_prime(x)]
 
-# Main programm
+# Main program.
 def runMe():
     start_time = time.perf_counter()
     print("Miller-Rabin-Test für Primzahlen")

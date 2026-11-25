@@ -120,7 +120,7 @@ def read_list(file_name):
     except:
         return 1, vertices
 
-# Main programm
+# Main program.
 def runMe():
     file_name = 'clustering_big.txt'
     min_dist = 3   # targeted minimum distance of clustering

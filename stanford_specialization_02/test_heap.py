@@ -9,7 +9,7 @@ oliver@kroneisen.net
 import elements as el
 import heaptools as ht
 
-# Main programm
+# Main program.
 def runMe():
     # Test 01.
     print('Testsatz 1')
